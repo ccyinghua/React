@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { counter, addGun, removeGun, addGunAsync } from './index.redux'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// 新建store
+const store = createStore(counter, compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+))
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// 将store等传递给App组件
+function render() {
+  ReactDOM.render(
+    <App store={store} addGunAsync={addGunAsync} addGun={addGun} removeGun={removeGun}/>, 
+    document.getElementById('root')
+  );
+}
+
+render()
+// 监听，状态改变后，执行render
+store.subscribe(render)

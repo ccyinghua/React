@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
   render() {
+    // 接收传递过来的数据
+    const store = this.props.store;
+    const num = store.getState();
+    const addGun = this.props.addGun;
+    const removeGun = this.props.removeGun;
+    const addGunAsync = this.props.addGunAsync;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>现在有机枪{num}把</h1>
+        {/* store.dispatch派发事件 */}
+        <button onClick={() => store.dispatch(addGun())}>申请武器</button>
+        <button onClick={() => store.dispatch(removeGun())}>上交武器</button>
+        <button onClick={() => store.dispatch(addGunAsync())}>异步添加武器</button>
       </div>
     );
   }

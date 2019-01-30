@@ -139,13 +139,13 @@ Redux默认只处理同步，异步任务需要react-thunk中间件
 - 使用applyMiddleware开启thunk中间件
 - Action可以返回函数，使用dispatch提交action
 
-src/index.js
+src/index.js <br>
 ![](./resource/3.jpg)
 
-src/index.redux.js
+src/index.redux.js <br>
 ![](./resource/4.jpg)
 
-src/App.js
+src/App.js <br>
 ![](./resource/5.jpg)
 
 ### 四、redux调试工具：redux DevTools
@@ -159,6 +159,32 @@ src/index.js
 ![](./resource/6.jpg)
 
 ![](./resource/7.jpg)
+
+
+### 五、使用react-redux
+
+1.说明：
+- npm install react-redux --save
+- 忘记subscribe，记住reducer，action和dispatch即可
+- React-redux提供Provider和connect两个接口来链接
+
+2.React-redux具体使用：
+
+- Provider组件在应用最外层，传入store即可，只用一次
+- Connect负责从外部获取组件需要的参数
+- Connect可以用装饰器的方式来写
+
+src/index.js
+![](./resource/8.jpg)
+
+src/App.js
+![](./resource/9.jpg)
+
+3.Connect可以用装饰器的方式来写:
+
+- npm run eject弹出个性化配置
+- npm install babel-plugin-transform-decorators-legacy插件
+- package.json里babel加上plugins配置
 
 
 

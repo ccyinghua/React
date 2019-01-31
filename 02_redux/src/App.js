@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addGun, removeGun, addGunAsync } from './index.redux';
+
+// App需要的属性
+// const mapStateToProps = (state) => {
+//   return {num: state}
+// }
+// App需要的方法集合
+// const actionCreators = {addGun, removeGun, addGunAsync};
+// connect包裹App
+// App = connect(mapStateToProps, actionCreators)(App);
+
+@connect(
+  state => ({num: state}),
+  {addGun, removeGun, addGunAsync}
+)
+
 class App extends Component {
   render() {
     // num, addGun, removeGun, addGunAsync都是connect给的，不需要手动dispatch
@@ -14,13 +29,5 @@ class App extends Component {
     );
   }
 }
-// App需要的属性
-const mapStateToProps = (state) => {
-  return {num: state}
-}
-// App需要的方法集合
-const actionCreators = {addGun, removeGun, addGunAsync};
-// connect包裹App
-App = connect(mapStateToProps, actionCreators)(App);
 
 export default App;

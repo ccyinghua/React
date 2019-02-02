@@ -186,5 +186,18 @@ src/App.js
 - npm install babel-plugin-transform-decorators-legacy插件
 - package.json里babel加上plugins配置
 
+![](./resource/10.png)
 
+![](./resource/11.jpg)
 
+报错：Error: The ‘decorators’ plugin requires a ‘decoratorsBeforeExport’ option, whose value must be a boolean. If you are migrating from Babylon/Babel 6 or want to use the old decorators proposal, you should use the ‘decorators-legacy’ plugin instead of ‘decorators’.
+
+解决：
+```
+cnpm install @babel/plugin-proposal-decorators --save-dev
+
+babel配置修改
+"plugins": [
+  ["@babel/plugin-proposal-decorators", { "legacy": true }]
+]
+```

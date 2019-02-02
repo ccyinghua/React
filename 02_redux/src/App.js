@@ -11,6 +11,7 @@ import { addGun, removeGun, addGunAsync } from './index.redux';
 // connect包裹App
 // App = connect(mapStateToProps, actionCreators)(App);
 
+// 装饰器模式
 @connect(
   state => ({num: state}),
   {addGun, removeGun, addGunAsync}
@@ -29,5 +30,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

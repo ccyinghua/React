@@ -3,8 +3,18 @@
 ```
 cnpm install redux --save
 ```
+## 目录
+[**一、redux基本用法**](#一、redux基本用法)<br>
+[**二、react项目中使用redux**](#二、react项目中使用redux)<br>
+[**三、redux处理异步**](#三、redux处理异步)<br>
+[**四、redux调试工具：reduxDevTools**](#四、redux调试工具：reduxDevTools)<br>
+[**五、使用react-redux**](#五、使用react-redux)<br>
+[**6-loading基础组件**](#6-loading基础组件)
 
-### 一、redux基本用法
+## <a id="1-jsonp抓取数据"></a>1-jsonp抓取数据
+
+
+### <a id="一、redux基本用法"></a>一、redux基本用法
 
 - 首先通过reducer新建store，随时通过store.getState获取状态
 - 需要状态变更,store.dispatch（action）来修改状态
@@ -51,7 +61,7 @@ store.dispatch({type: '减机关枪'})
 
 ![](./resource/1.png)
 
-### 二、react项目中使用redux
+### <a id="二、react项目中使用redux"></a>二、react项目中使用redux
 
 - 把store.dispatch方法传递给组件，内部可以调用修改状态
 - Subscribe订阅render函数，每次修改都重新渲染
@@ -132,7 +142,7 @@ export default App;
 ```
 ![](./resource/2.jpg)
 
-### 三、redux处理异步
+### <a id="三、redux处理异步"></a>三、redux处理异步
 
 Redux默认只处理同步，异步任务需要react-thunk中间件
 - npm install redux-thunk --save
@@ -148,7 +158,7 @@ src/index.redux.js <br>
 src/App.js <br>
 ![](./resource/5.jpg)
 
-### 四、redux调试工具：redux DevTools
+### <a id="四、redux调试工具：reduxDevTools"></a>四、redux调试工具：reduxDevTools
 
 Chrome搜索redux 安装
 - 新建store的时候判断window.devToolsExtension
@@ -161,7 +171,7 @@ src/index.js
 ![](./resource/7.jpg)
 
 
-### 五、使用react-redux
+### <a id="五、使用react-redux"></a>五、使用react-redux
 
 1.说明：
 - npm install react-redux --save

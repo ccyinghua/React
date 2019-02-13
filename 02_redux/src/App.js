@@ -13,7 +13,9 @@ import { addGun, removeGun, addGunAsync } from './index.redux';
 
 // 装饰器模式
 @connect(
+  // 你要state什么属性放到props里
   state => ({num: state}),
+  // 你要什么方法，放到props里，自动dispatch
   {addGun, removeGun, addGunAsync}
 )
 

@@ -9,7 +9,6 @@ cnpm install redux --save
 [**三、redux处理异步**](#三、redux处理异步)<br>
 [**四、redux调试工具：reduxDevTools**](#四、redux调试工具：reduxDevTools)<br>
 [**五、使用react-redux**](#五、使用react-redux)<br>
-[**6-loading基础组件**](#6-loading基础组件)
 
 ## <a id="1-jsonp抓取数据"></a>1-jsonp抓取数据
 

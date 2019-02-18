@@ -3,6 +3,7 @@
 将02_redux项目为基础添加router：[02_redux](https://github.com/ccyinghua/React/tree/master/02_redux)
 
 - [**一、初识router4**](#一、初识router4)
+- [**二、与redux配合**](#二、与redux配合)
 
 
 ### <a id="一、初识router4"></a>一、初识router4
@@ -68,3 +69,79 @@ class Test extends React.Component {
 
 有Switch，路由错误时：<br>
 ![](./resource/5.jpg)
+
+
+### <a id="二、与redux配合"></a>二、与redux配合
+
+- 复杂redux应用，多个reducer,用combineReducers合并
+
+reducer.js
+```javascript
+// 合并所有reducer 并且返回
+import { combineReducers } from 'redux';
+import { counter } from './index.redux'
+import { auth } from './Auth.redux'
+
+export default combineReducers({counter, auth})
+```
+src/index.js
+```javascript
+// import { counter } from './index.redux'
+import reducers from './reducer'
+
+// 新建store
+const store = createStore(reducers, compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+))
+
+// console.log(store.getState()); 
+// {
+//   auth: {isAuth: false, user: '李云龙},
+//   counter: 10
+// }
+```
+使用：
+```javascript
+import React from 'react';
+import { Route, Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import App from './App';
+import { logout } from './Auth.redux';
+
+// 两个reducers每个reducers都有一个state:index.redux.js与Auth.redux.js
+// 合并reducers:reducer.js
+// 装饰器模式
+@connect(
+  // 你要state什么属性放到props里
+  state => (state.auth),
+  // 你要什么方法，放到props里，自动dispatch
+  { logout }
+)
+
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    console.log(this.props)
+    const redirectToLogin = <Redirect to='/login'></Redirect>;
+    const app = (
+      <h2>......</h2>
+    )
+    return this.props.isAuth ? app : redirectToLogin;
+  }
+}
+
+export default Dashboard;
+```
+
+
+
+
+
+
+
+
+
+

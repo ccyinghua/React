@@ -12,7 +12,8 @@ import {
 import Auth from './Auth';
 import Dashboard from './Dashboard';
 // import { counter } from './index.redux'
-import reducers from './reducer'
+import reducers from './reducer';
+import './config.js'
 
 // 新建store
 const store = createStore(reducers, compose(

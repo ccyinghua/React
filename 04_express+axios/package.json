@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
+    "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -124,11 +125,20 @@
         {
           "legacy": true
         }
+      ],
+      [
+        "import", 
+        { "libraryName": "antd-mobile", 
+          "style": "css" 
+        }
       ]
     ]
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.3.0",
+    "antd-mobile": "^2.2.0-beta.1",
+    "babel-plugin-import": "^1.11.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.5"
-  }
+  },
+  "proxy": "http://localhost:9093"
 }

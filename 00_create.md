@@ -14,7 +14,7 @@ npm start
 ```
 在浏览器中打开 http://localhost:3000/ ，结果如下图所示：
 
-![](./resource/1.png)
+![](./01_react/resource/1.png)
 
 此时在packge.json文件基本什么都没有，所有的配置都集成在了"react-scripts"，如果想更改配置,执行以下命令会把所有的配置全部提取出来。
 ```
